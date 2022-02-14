@@ -4,7 +4,8 @@
   "info": {
     "singularName": "thing",
     "pluralName": "things",
-    "displayName": "Thing"
+    "displayName": "Thing",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true,
@@ -44,6 +45,23 @@
     },
     "size": {
       "type": "text"
+    },
+    "users": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "plugin::users-permissions.user",
+      "mappedBy": "things"
+    },
+    "quantitative_values": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::quantitative-value.quantitative-value"
+    },
+    "offers": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::offer.offer",
+      "mappedBy": "thing"
     }
   }
 }

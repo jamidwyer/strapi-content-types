@@ -1,0 +1,76 @@
+{
+  "kind": "collectionType",
+  "collectionName": "offers",
+  "info": {
+    "singularName": "offer",
+    "pluralName": "offers",
+    "displayName": "Offer",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "availability": {
+      "type": "enumeration",
+      "enum": [
+        "InStock",
+        "OutOfStock"
+      ]
+    },
+    "category": {
+      "type": "string"
+    },
+    "eligibleRecipient": {
+      "type": "enumeration",
+      "enum": [
+        "Self",
+        "Family",
+        "Friends",
+        "InNeed",
+        "Community",
+        "Public"
+      ]
+    },
+    "availabilityStarts": {
+      "type": "datetime"
+    },
+    "availabilityEnds": {
+      "type": "datetime"
+    },
+    "availableAt": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::place.place"
+    },
+    "quantity": {
+      "type": "biginteger"
+    },
+    "gtin": {
+      "type": "string"
+    },
+    "measurements": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::quantitative-value.quantitative-value"
+    },
+    "inventory_level": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::quantitative-value.quantitative-value"
+    },
+    "thing": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::thing.thing",
+      "inversedBy": "offers"
+    },
+    "users": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "offers"
+    }
+  }
+}

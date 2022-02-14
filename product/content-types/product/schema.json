@@ -1,29 +1,49 @@
 {
   "kind": "collectionType",
-  "collectionName": "products",
+  "collectionName": "things",
   "info": {
-    "singularName": "product",
-    "pluralName": "products",
-    "displayName": "Product"
+    "singularName": "thing",
+    "pluralName": "things",
+    "displayName": "Thing"
   },
   "options": {
-    "draftAndPublish": true
-  },
-  "pluginOptions": {
-    "i18n": {
-      "localized": true
-    }
+    "draftAndPublish": true,
+    "comment": ""
   },
   "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "image": {
+      "type": "string"
+    },
+    "expires": {
+      "type": "date"
+    },
+    "availability": {
+      "type": "enumeration",
+      "enum": [
+        "Discontinued",
+        "InStock",
+        "LimitedAvailability",
+        "OutOfStock",
+        "SoldOut"
+      ]
+    },
     "gtin": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "string",
-      "maxLength": 100,
-      "unique": true
+      "type": "text"
+    },
+    "sku": {
+      "type": "text"
+    },
+    "description": {
+      "type": "text"
+    },
+    "category": {
+      "type": "text"
+    },
+    "size": {
+      "type": "text"
     }
   }
 }
